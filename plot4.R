@@ -8,6 +8,9 @@ dt_filtered <- dt_base[dt_base$Date == "1/2/2007" | dt_base$Date == "2/2/2007", 
 ## Creates a new collum DateTime
 dt_filtered$DateTime <- strptime(paste(dt_filtered$Date, dt_filtered$Time), format="%d/%m/%Y %H:%M:%S")
 
+# Configure system settings as to get weekdays abbreviations in English
+Sys.setlocale("LC_TIME", "English")
+
 ## Format display graphics and margins
 par(mfrow=c(2,2), mar = c(3,2,1,1), oma=c(0,0,0,0))
 

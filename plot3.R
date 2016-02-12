@@ -8,6 +8,9 @@ dt_filtered <- dt_base[dt_base$Date == "1/2/2007" | dt_base$Date == "2/2/2007", 
 ## Creates a new collum DateTime
 dt_filtered$DateTime <- strptime(paste(dt_filtered$Date, dt_filtered$Time), format="%d/%m/%Y %H:%M:%S")
 
+# Configure system settings as to get weekdays abbreviations in English
+Sys.setlocale("LC_TIME", "English")
+
 ## Create a plot
 plot(dt_filtered$DateTime, dt_filtered$Sub_metering_1, ylab = "Energy sub metering", xlab = "", "n")
 lines(dt_filtered$DateTime, dt_filtered$Sub_metering_1, col = "black")
